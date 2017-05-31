@@ -1,6 +1,6 @@
 // Get all the keys from document
 var keys = document.querySelectorAll('#calculator span');
-var operators = ['+', '-', 'x', '÷', 'sin', 'cos', 'tg', 'quad', 'pow', 'sqrt', 'op', 'fp', 'exp', 'pi', 'asn', 'e',];  //&divide = ÷
+var operators = ['+', '-', 'x', '÷', 'sin', 'cos', 'tg', 'log', 'pow', 'sqrt', 'exp', 'Π', 'ln', 'e',];  //&divide = ÷
 var decimalAdded = false;
 
 // Add onclick event to all the keys and perform operations
@@ -10,25 +10,39 @@ for(var i = 0; i < keys.length; i++) {
 		var input = document.querySelector('.screen');
 		var inputVal = input.innerHTML;
 		var btnVal = this.innerHTML;
+		var lastform = inputVal[inputVal.length -3];
 		
 		// Now, just append the key values (btnValue) to the input string and finally use javascript's eval function to get the result
 		// If clear key is pressed, erase everything
 		if(btnVal == 'C' || btnVal == 'CA') {
 			input.innerHTML = '';
 			decimalAdded = false;
+			flag=0;
+			ans=0;
 		}
+		//And if Delete Key is pressed, erase only one
 		else if(btnVal == 'del') {
 			var size = input.innerHTML.length;
 			input.innerHTML=input.innerHTML.substring(0,size-1);
+			if(lastform == 'cos' || lastform == 'sin' || lastform == 'pow' || lastform == 'log' || lastform == 'exp') {
+				input.innerHTML=input.innerHTML.substring(0, size -3);
+			}
+			//add and remove flags if a open parenthesis or close parenthesis is deleted 
+			if (lastChar == '(') {
+				flag=0
+			}
+			else if (lastChar == ')') {
+				flag+=1;
+			}
 		}
-		
+	
 		// If eval key is pressed, calculate and display the result
 		else if(btnVal == '=') {
 			var equation = inputVal;
 			var lastChar = equation[equation.length - 1];
 			
-			// Replace all instances of x and ÷ with * and / respectively. This can be done easily using regex and the 'g' tag which will replace all instances of the matched character/substring
-			equation = equation.replace(/x/g, '*').replace(/÷/g, '/');
+			// Replace all instances of operators. This can be done easily using regex and the 'g' tag which will replace all instances of the matched character/substring
+			equation = equation.replace(/x/g, '*').replace(/÷/g, '/').replace(/π/g, '3.14').replace(/e/g, '2.17').replace(/cos/g, 'Math.cos').replace(/sin/g, 'Math.sin').replace(/tg/g, 'Math.tg').replace(/%/g, '/100');
 			
 			// Final thing left to do is checking the last character of the equation. If it's an operator or a decimal, remove it
 			if(operators.indexOf(lastChar) > -1 || lastChar == '.')
@@ -38,46 +52,6 @@ for(var i = 0; i < keys.length; i++) {
 				input.innerHTML = eval(equation);
 				
 			decimalAdded = false;
-		}
-		
-		else if (btnVal == '%') {
-			
-		}
-		else if (btnVal == 'e') {
-			
-		}
-		else if (btnVal == 'pi') {
-			
-		}
-		else if (btnVal == 'exp') {
-			
-		}
-		else if (btnVal == 'log') {
-			
-		}
-		else if (btnVal == 'ln') {
-			
-		}
-		else if (btnVal == 'inv') {
-			inverse = inverse.replace(/cos/g, 'acos');
-		}
-		else if (btnVal == 'ans') {
-			
-		}
-		else if (btnVal == 'cos') {
-			
-		}
-		else if (btnVal == 'sin') {
-			
-		}
-		else if (btnVal == 'tg') {
-			
-		}
-		else if (btnVal == 'pow') {
-			
-		}
-		else if (btnVal == 'sqrt') {
-			
 		}
 		
 		// Basic functionality of the calculator is complete. But there are some problems like 
