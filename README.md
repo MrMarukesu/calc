@@ -1,2 +1,2 @@
 # calc
-a simple calculetor made in electron.
+a simple sientific calculetor made in electron with estatistic and probability modes.
