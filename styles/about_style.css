@@ -1,0 +1,50 @@
+/* Basic reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+	/* Better text styling */
+	font: bold 30px Arial, sans-serif;
+}
+
+/* The Overlay (background) */
+ul {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    overflow: hidden;
+    background-color: rgba(3, 3, 3, 0.5);
+}
+
+li {
+    float: left;
+    margin: 0 5px;
+    left: 5px;
+}
+
+li a.left {
+    margin-left: 10px;
+}
+
+li a {
+	
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 6px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+about {
+    background-color: #fff;
+}
