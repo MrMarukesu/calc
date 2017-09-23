@@ -1,5 +1,33 @@
 {
-    "name" : "Calc",
-    "version" : "0.1.8",
-    "main" : "load.js"
+  "name": "Calc",
+  "description": "A Simple Claculator.",
+  "version": "0.1.9",
+  "homepage": "https://github.com/MrMarukesu/Calc",
+  "author": "MrMarukesu",
+  "email": "outlinx@outlook.com",
+  "license": "LGPL-3.0",
+  "main": "load.js",
+  "build": {
+    "icon": "src/media/Calc.*",
+    "appId": "com.github.MrMarukesu.Calc",
+    "productName": "Calc",
+    "compression": "store",
+    "win": {
+      "target": "portable",
+      "icon": "src/media/Calc.ico",
+      "asar": "true"
+    },
+    "linux": {
+      "target": "appImage",
+      "category": "acessories",
+      "asar": "true"
+    }
+  },
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -w"
+  },
+  "devDependencies": {
+    "electron-builder": "^19.30.1"
+  }
 }

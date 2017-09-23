@@ -5,7 +5,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	
+
 	/* Better text styling */
 	font: bold 30px Arial, sans-serif;
 }
@@ -44,15 +44,14 @@
 .over ati:not(.ativ) a:hover {
     background-color: #111;
 }
-/* Finally adding some IE9 fallbacks for gradients to finish things up */
 
 /* Using box shadows to create 3D effects */
 #calculator {
-	width: 360px;
-	height: 680px;
+	width: 580px;
+	height: 425px;
 	margin: 0 0;
-	padding: 10px 10px 10px 20px;
-	
+	padding: 10px 10px 10px 10px;
+
 	background: #dedede;
 	background: linear-gradient(#EAEAEA, #d6d6d6);
 	border-radius: 3px;
@@ -61,25 +60,25 @@
 
 /* Top portion */
 .top span.clear {
-	float: left;
+	float: right;
 }
 
 /* Inset shadow on the screen to create indent */
 .top .screen {
 	height: 68px;
-	width: 230px;
-	
+	width: 470px;
+
 	float: left;
-	
+
 	margin-top: 10px;
 	margin-left: 5px;
 	margin-right: 5px;
 	padding: 0 10px;
-	
+
 	background: rgba(0, 0, 0, 0.2);
 	border-radius: 3px;
 	box-shadow: inset 0px 8px rgba(0, 0, 0, 0.2);
-	
+
 	/* Typography */
 	font-size: 37px;
 	line-height: 68px;
@@ -97,25 +96,25 @@
 	float: left;
 	position: relative;
 	top: 0;
-	
+
 	cursor: pointer;
-	
+
 	width: 70px;
 	height: 60px;
-	
+
 	background: black;
 	border-radius: 3px;
 	box-shadow: 0px 8px rgba(0, 0, 0, 0.8);
-	
+
 	margin: 10px 5px 10px 5px;
-	
+
 	color: white;
 	line-height: 60px;
 	text-align: center;
-	
+
 	/* prevent selection of text inside keys */
 	user-select: none;
-	
+
 	/* Smoothing out hover and active states using css3 transitions */
 	transition: all 0.2s ease;
 }
